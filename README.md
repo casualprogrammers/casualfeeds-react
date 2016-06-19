@@ -3,7 +3,7 @@
 ##download project
 
 ```bash 
-git@github.com:casualprogrammers/casualfeeds-react.git
+git clone git@github.com:casualprogrammers/casualfeeds-react.git
 cd casualfeeds-react
 ```
 
