@@ -1,16 +1,36 @@
+var path = require('path');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+
+app.set('port', (process.env.PORT || 3333));
+
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+// Webpack
 var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+var webpackConfig = require('./webpack.config.js');
+var webpackCompiler = webpack(webpackConfig);
 
-var port = 3333;
+// Webpack middlewares
+var webpackDev = require('webpack-dev-middleware');
+var webpackHot = require('webpack-hot-middleware');
 
-new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true,
-  historyApiFallback: true,
-}).listen(port, 'localhost', function (err, result) {
+app.use(webpackDev(webpackCompiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
+}));
+
+app.use(webpackHot(webpackCompiler));
+
+// Server
+app.listen(app.get('port'), 'localhost', function(err) {
   if (err) {
     console.log(err);
+    return;
   }
-  console.log('Listening at localhost: '+port);
+
+  console.log('Server started: http://localhost:' + app.get('port') + '/');
 });

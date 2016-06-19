@@ -31,8 +31,18 @@ class App extends React.Component {
 
 const LoadingFeeds = () => <div>Loading Feeds ... </div>
 
+const FeedListTitle = () => <div>
+  <h2>Feeds</h2>
 
-const FeedList = ({feeds}) => <div>{feeds.map( (feed, idx) => <Feed key={idx}  feed={feed} /> ) }</div>
+</div>
+
+
+const FeedList = ({feeds}) =>
+  <div>
+    <FeedListTitle />
+    {feeds.map( (feed, idx) => <Feed key={idx}  feed={feed} /> ) }
+  </div>
+
 FeedList.propTypes = {
   feeds: array.isRequired
 }
