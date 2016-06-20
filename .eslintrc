@@ -1,0 +1,47 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "jsx-control-statements/jsx-control-statements": true
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "expect": true,
+    "browser": true
+  },
+  "rules": {
+    "strict": [2, "never"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "valid-typeof": 2,
+    "block-scoped-var": 2,
+    "eqeqeq": [2, "smart"],
+    "no-var": 2,
+    "no-caller": 2,
+    "no-eq-null": 2,
+    "no-invalid-this": 2,
+    "no-labels": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 2,
+    "vars-on-top": 2,
+    "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+    "no-undef": 0,
+    "jsx-control-statements/jsx-use-if-tag": 0,
+    "jsx-control-statements/jsx-jcs-no-undef": 2,
+    "no-unused-vars": [2, { "args": "after-used" }],
+    "react/jsx-uses-react": 2,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-uses-vars": 2,
+    "react/jsx-no-undef": 2,
+    "react/react-in-jsx-scope": 2
+  },
+  "plugins": [
+    "react",
+    "jsx-control-statements"
+  ],
+  "extends": ["plugin:jsx-control-statements/recommended"]
+}

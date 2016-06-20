@@ -3,9 +3,10 @@ const {array, shape, string} = React.PropTypes
 const jsonize = (res) => res.json();
 
 
+
 class App extends React.Component {
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       redditRes: {}
     }
@@ -18,11 +19,10 @@ class App extends React.Component {
   }
 
   render(){
-      const {redditRes} = this.state
-
-      return redditRes.data
-        ? <FeedList feeds={redditRes.data.children} />
-        : <LoadingFeeds />
+    const {redditRes} = this.state
+    return redditRes.data
+      ? <FeedList feeds={redditRes.data.children} />
+      : <LoadingFeeds />
 
 
   }
